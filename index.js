@@ -8,7 +8,7 @@ connectToMongo();
 
 const express = require('express')
 const app = express();
-const port = 5000;
+const port = process.env.port || 5000;
 
 //need to use a middleware if i want to receive a request on endpoin
 app.use(cors())
