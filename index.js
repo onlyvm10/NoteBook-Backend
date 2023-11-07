@@ -1,5 +1,6 @@
 const connectToMongo = require('./db');
 var cors = require('cors')
+const http = require('http')
 connectToMongo();
 
 
@@ -19,6 +20,6 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/note', require('./routes/note'));
 
-app.listen(port, () => {
+http.createServer(app).listen(port, () => {
   console.log(`NoteBook listening at  http://localhost:${port}`)
 })
