@@ -20,12 +20,15 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/note', require('./routes/note'));
 
+
+
+http.createServer(app).listen(port, () => {
+  console.log(`NoteBook listening at  http://localhost:${port}`)
+})
+
+
 app.get('*',(req,res,next)=>{
   res.status(200).json({
     message:'bad request'
   })
-})
-
-http.createServer(app).listen(port, () => {
-  console.log(`NoteBook listening at  http://localhost:${port}`)
 })
